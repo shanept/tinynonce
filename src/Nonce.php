@@ -34,7 +34,7 @@ class Nonce {
 
     /**
      * The storage backend.
-     * 
+     *
      * @var TinyNonce\StorageEngine $storage
      */
     private $storage;
@@ -75,7 +75,7 @@ class Nonce {
 
     /**
      * Returns whether we have a nonce with a specific name
-     * 
+     *
      * @param string $name           The nonce name
      * @param bool   $allow_expired  Allow returning of expired nonces. Default false
      *
@@ -101,7 +101,7 @@ class Nonce {
      * @param int    $expiry  Lifetime of the nonce. Defaults to Nonce::$expiry
      * @param int    $length  The string length. Defaults to Nonce::$length
      *
-     * @returns string  The generated nonce
+     * @return string  The generated nonce
      */
     public function create($name, $expiry=null, $length=null) {
         if (is_null($expiry)) $expiry = $this->expiry;
@@ -150,7 +150,7 @@ class Nonce {
      * @param string $form_value  The value supplied by the form to be verified
      * @param bool   $clear       Clears the nonce if successfully verified. Default true
      *
-     * @returns bool
+     * @return bool
      */
     public function verify(string $name, string $form_value, bool $clear=true) {
         if (! $this->has($name)) {

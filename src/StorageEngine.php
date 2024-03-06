@@ -7,7 +7,7 @@ interface StorageEngine {
      *
      * @param string $name The storage index
      *
-     * @returns mixed The stored value
+     * @return mixed The stored value
      */
     public function get(string $name);
 
@@ -24,7 +24,7 @@ interface StorageEngine {
      *
      * @param string $name  The storage index
      *
-     * @returns bool Whether or not the value exists
+     * @return bool Whether or not the value exists
      */
     public function has(string $name);
 

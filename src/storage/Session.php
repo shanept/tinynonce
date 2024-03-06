@@ -15,18 +15,30 @@ class Session implements StorageEngine {
         return call_user_func_array(array($this, $method), $args);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function get(string $name) {
         return $_SESSION['nonces'][$name];
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function set(string $name, $value) {
         $_SESSION['nonces'][$name] = $value;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function has(string $name) {
         return array_key_exists($_SESSION['nonces'], $name);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function delete(string $name) {
         unset($_SESSION['nonces'][$name]);
     }

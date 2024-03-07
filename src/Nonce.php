@@ -91,7 +91,7 @@ class Nonce {
         }
 
         // Will return true as long as our nonce is in lifetime
-        return $this->storage->get($name)['expiry'] < time();
+        return $this->storage->get($name)['expiry'] >= time();
     }
 
     /**

@@ -33,7 +33,7 @@ class Session implements StorageEngine {
      * {@inheritDoc}
      */
     public function has(string $name) {
-        return array_key_exists($_SESSION['nonces'], $name);
+        return array_key_exists($name, $_SESSION['nonces']);
     }
 
     /**
@@ -65,7 +65,7 @@ class Session implements StorageEngine {
             session_start();
         }
 
-        if (! array_key_exists($_SESSION, 'nonces')) {
+        if (! array_key_exists('nonces', $_SESSION)) {
             $_SESSION['nonces'] = array();
         }
 

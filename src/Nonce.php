@@ -174,12 +174,13 @@ class Nonce {
                 substr($this->secret, 0, $rotate);
 
         $nonce = '';
-        $char_len = strlen($this->chars);
+        $char_len = strlen($this->charset);
+
         while (true) {
             $nonce_length = strlen($nonce);
 
             // We have achieved the required length
-            if ($nonce_length < $length) {
+            if ($nonce_length >= $length) {
                 break;
             }
 
@@ -188,7 +189,7 @@ class Nonce {
             $idx *= ord($salt[$nonce_length % $salt_len]);
 
             // Extract the letter and append to our nonce
-            $nonce .= $this->chars[ $idx % $char_len ];
+            $nonce .= $this->charset[ $idx % $char_len ];
         }
 
         return $nonce;
